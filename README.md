@@ -1,4 +1,4 @@
-# attendance
+# Vue-Attendance
 
 ## Project setup
 ```
