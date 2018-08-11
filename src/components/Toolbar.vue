@@ -28,7 +28,7 @@ export default {
   name: 'Toolbar',
   data: function(){
     return{
-      title: 'Attendance',
+      title: 'Vue-Attendance',
       clicked: false
     }
   },
