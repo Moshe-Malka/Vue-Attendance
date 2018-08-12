@@ -82,11 +82,13 @@ export default {
       this.$store.dispatch('deleteSelectedWorkersListing')
     },
     editItem(){
-      // check if selected array has one element.
       // popup dialog box to edit one item.
+      // dispatch with payload.
       //...
     },
     addItem(){
+      // popup dialog box to add one item.
+      // dispatch with payload.
       //...
     }
   },

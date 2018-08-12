@@ -11,13 +11,6 @@
       </v-btn>
       <v-toolbar-title>{{ title }}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <!-- move these to component and render only in dashboard. -->
-      <!-- <v-btn icon>
-        <v-icon medium>add_circle</v-icon>
-      </v-btn> -->
-      <!-- <v-btn icon>
-        <v-icon medium>delete</v-icon>
-      </v-btn> -->
     </v-toolbar>
     <router-view/>
   </div>

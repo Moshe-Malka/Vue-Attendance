@@ -68,7 +68,22 @@ export default new Vuex.Store({
             } catch(e){
                 return
             }
-
+        },
+        async addWorkerListing({commit}, payload){
+            //...
+        },
+        async editWorkerListing({commit}, payload){
+            //...
+        },
+        async authUser({commit}, payload){
+            try{
+                const response = await axios.get(`http://jsonplaceholder.com/posts/${payload}`)
+                if(response){
+                    return response
+                }
+            } catch(e){
+                return
+            }
         }
 
     },
