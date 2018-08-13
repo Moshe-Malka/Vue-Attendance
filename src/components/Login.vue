@@ -68,21 +68,21 @@ export default {
         }
     },
     methods:{
-        onLogin(){      // send GET request for AUTH to backend server.
-            try{
-                this.$store.dispatch('authUser',{ email, password}).then( res => {
-                    if(res){
-                        this.$router.push('/dashboard')     // move to dashboard
-                    }else{
-                        toogleAlert()
-                    }                    
-                })
-            } catch(e){
-                toogleAlert()
-                return 
-            }
-        },
-        toogleAlert(){
+        // onLogin(){      // send GET request for AUTH to backend server.
+        //     try{
+        //         this.$store.dispatch('authUser',{ email, password}).then( res => {
+        //             if(res){
+        //                 this.$router.push('/dashboard')     // move to dashboard
+        //             }else{
+        //                 this.toggleAlert()
+        //             }                    
+        //         })
+        //     } catch(e){
+        //         this.toggleAlert()
+        //         return 
+        //     }
+        // }, 
+        toggleAlert(){
             this.email = ''
             this.password = ''
             if(!this.alert){

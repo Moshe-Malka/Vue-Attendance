@@ -33,7 +33,6 @@
             </v-alert>
         </template>
       </v-data-table>
-      {{ selected }}
     </div>
 </template>
 <script>
@@ -41,7 +40,6 @@ import DatePicker from 'vue2-datepicker'
 
 export default {
     name: 'Dashboard',
-    props:['items'],
     watch:{
       selected: function(){
         this.$store.commit('setSelected', this.selected)
@@ -72,6 +70,11 @@ export default {
       }),
     methods: {
       //...
+    },
+    computed:{
+      items(){
+        return this.$store.getters.getWorkersListing
+      }
     }
 }
 </script>
