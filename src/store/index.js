@@ -57,25 +57,28 @@ export default new Vuex.Store({
                 state.workers = []
                 return
             }else{
-                let output = []
-                payload.forEach(element => {
-                    element.attandanceTimestamps.forEach( ts => {
-                        output.push({
-                            worker_name: element.name,
-                            rfid: element.rfid,
-                            date: ts
-                        })
+                try{
+                    state.workers = []
+                    let output = []
+                    payload.forEach(element => {
+                        element.attandanceTimestamps.forEach( ts => {
+                            output.push({
+                                worker_name: element.name,
+                                rfid: element.rfid,
+                                date: ts
+                            })
+                        });
                     });
-                });
-                state.workers = output    
+                    state.workers = output
+                }catch(e){
+                    state.workers = []
+                }
             }
         }
 
     },
     actions:{   // methods
-        fetchWorkersInRange({commit}, start, end){                
-            // const start = daterange[0].replace('T', ' ').split(".")[0]
-            // const end = daterange[1].replace('T', ' ').split(".")[0]
+        fetchWorkersInRange({commit}, start, end){
             axios.get('http://localhost:3000/api/getWorkersInRange',
                                         { params:
                                             { start,

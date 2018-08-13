@@ -1,8 +1,14 @@
 <template>
   <div>
     <br>
-    <!-- Custom Date Picker Component -->
-    <custom-date-picker />
+    <v-container grid-list-md text-xs-center>
+        <v-layout row wrap>
+          <!-- Custom Date Picker Component -->
+          <custom-date-picker />
+          <!-- Custom Actions Component -->
+          <custom-actions />
+        </v-layout>
+    </v-container>
     <!-- Custom Table Component -->
     <v-container>
       <custom-table/>
@@ -13,12 +19,14 @@
 <script>
 import CustomTable from './CustomTable.vue'
 import CustomDatePicker from './CustomDatePicker.vue'
+import CustomActions from './CustomActions.vue'
 
 export default {
   name: 'Dashboard',
   components: {
     CustomDatePicker,
-    CustomTable
+    CustomTable,
+    CustomActions
   },
   data(){
     return{
