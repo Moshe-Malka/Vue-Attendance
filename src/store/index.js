@@ -7,38 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state:{
         selected:[],
-        workers: [
-            // {
-            //   rfid: 25872405745,
-            //   worker_name: 'Moshe Malka',
-            //   date: '2018-8-19 21:23:23'
-            // },
-            // {
-            //   rfid: 8943563974865,
-            //   worker_name: 'KKKkkkk Malka',
-            //   date: '2018-2-09 11:23:23'
-            // },
-            // {
-            //   rfid: 86586767,
-            //   worker_name: 'kiko Malka',
-            //   date: '2018-1-09 20:23:23'
-            // },
-            // {
-            //   rfid: 235436456456,
-            //   worker_name: 'Hana Hadad-Malka',
-            //   date: '2018-2-29 18:23:23'
-            // },
-            {
-              rfid: 12874645,
-              worker_name: 'Blalalalal',
-              date: '2018-10-17 12:23:23'
-            },
-            {
-              rfid: 34859394756374563,
-              worker_name: 'NEWWWWWWWW',
-              date: '2018-7-11 1:3:2'
-            }
-          ]
+        workers: []
     },
     getters:{   // computed 
         getWorkersListing(state){
@@ -53,29 +22,24 @@ export default new Vuex.Store({
             state.selected = payload
         },
         setWorkers(state, payload){
-            if(!payload){
+            if(Object.keys(payload).length === 0 && payload.constructor === Object){
                 state.workers = []
                 return
             }else{
-                try{
-                    state.workers = []
-                    let output = []
-                    payload.forEach(element => {
-                        element.attandanceTimestamps.forEach( ts => {
-                            output.push({
-                                worker_name: element.name,
-                                rfid: element.rfid,
-                                date: ts
-                            })
-                        });
+                state.workers = []
+                let output = []
+                payload.forEach(element => {
+                    element.attandanceTimestamps.forEach( ts => {
+                        output.push({
+                            worker_name: element.name,
+                            rfid: element.rfid,
+                            date: ts
+                        })
                     });
-                    state.workers = output
-                }catch(e){
-                    state.workers = []
-                }
+                });
+                state.workers = output
             }
         }
-
     },
     actions:{   // methods
         fetchWorkersInRange({commit}, start, end){
