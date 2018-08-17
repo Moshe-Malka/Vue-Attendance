@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <app-toolbar />
+    <!-- <transition name="fade">  -->
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    <!-- </transition> -->
   </div>
 </template>
 
 <script>
-import Toolbar from './components/Toolbar.vue'
-
 export default {
-  name: 'app',
-  components: {
-    appToolbar: Toolbar    
-  }
+  name: 'app'
 }
 </script>
 
@@ -22,6 +21,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

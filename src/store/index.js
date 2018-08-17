@@ -42,17 +42,19 @@ export default new Vuex.Store({
         }
     },
     actions:{   // methods
-        fetchWorkersInRange({commit}, start, end){
-            axios.get('http://localhost:3000/api/getWorkersInRange',
+        fetchWorkersInRange({commit}, { start, end }){
+            if(start && end){
+                axios.get('http://localhost:3000/api/getWorkersInRange',
                                         { params:
-                                            { start,
-                                                end
+                                            { start: start,
+                                                end: end
                                             }
                                         }
                                         ).then( response => {
                                             commit('setSelected',[])
                                             commit('setWorkers', response.data)
-                                        })            
+                                        })
+            }
         },
         // async deleteSelectedWorkersListing({commit}){
         //     try{

@@ -1,8 +1,7 @@
 <template>
   <div>
-    <br>
-    <v-container grid-list-md text-xs-center>
-        <v-layout row wrap>
+    <v-container grid-list-md text-xs-center mt-5>
+        <v-layout row wrap mt-3>
           <!-- Custom Date Picker Component -->
           <custom-date-picker />
           <!-- Custom Actions Component -->

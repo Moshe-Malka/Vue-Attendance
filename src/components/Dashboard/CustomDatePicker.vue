@@ -29,9 +29,9 @@ export default {
         },
     methods: {
         fetchWorkers(){
-            let start = this.daterange[0]
-            let end = this.daterange[1]
-            this.$store.dispatch('fetchWorkersInRange', start, end)
+            const start = this.daterange[0]
+            const end = this.daterange[1]
+            this.$store.dispatch('fetchWorkersInRange', { start, end })
         }
     },
     computed:{
